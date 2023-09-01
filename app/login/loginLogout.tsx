@@ -1,8 +1,17 @@
+import Cookie from "js-cookie";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Tabs, Tab, Input, Link, Button, Card, CardBody } from "@nextui-org/react";
 
 const LoginLogout = () => {
   const [selected, setSelected] = useState("login");
+  const router = useRouter();
+
+  async function handleLogin() {
+    Cookie.set("auth_token", "zzzz");
+    router.push("/security");
+  }
+
   return (
     <Card className="max-w-full w-[340px]">
       <CardBody className="overflow-hidden">
@@ -23,7 +32,7 @@ const LoginLogout = () => {
                 </Link>
               </p>
               <div className="flex gap-2 justify-end">
-                <Button fullWidth color="primary">
+                <Button fullWidth color="primary" onClick={handleLogin}>
                   Entrar
                 </Button>
               </div>

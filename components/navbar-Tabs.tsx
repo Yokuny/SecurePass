@@ -1,17 +1,16 @@
-"use client";
 import { NavbarItem } from "@nextui-org/navbar";
-import { link as linkStyles } from "@nextui-org/theme";
 import { usePathname } from "next/navigation";
 import NextLink from "next/link";
 import clsx from "clsx";
 
-import { siteConfig } from "@/config/site";
+import { link as linkStyles } from "@nextui-org/theme";
+import { RoutesType } from "@/types";
 
-const Tabs = () => {
+const Tabs = ({ routes }: { routes: RoutesType[] }) => {
   const path = usePathname();
   return (
     <ul className="hidden sm:flex gap-3 md:gap-4 justify-start ml-2">
-      {siteConfig.navItems.map((item) => (
+      {routes.map((item) => (
         <NavbarItem key={item.href} isActive={item.href === path}>
           <NextLink
             className={clsx(

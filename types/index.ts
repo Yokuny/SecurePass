@@ -10,3 +10,8 @@ export type listItem = {
   user: string;
   password: string;
 };
+
+export type RoutesType = {
+  label: string;
+  href: string;
+};

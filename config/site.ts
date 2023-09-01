@@ -9,27 +9,16 @@ export const siteConfig = {
     { label: "Inicio", href: "/security/" },
     { label: "Sites", href: "/security/sites" },
     { label: "Cartões", href: "/security/cards" },
-    { label: "Wifi's", href: "/security/wifi" },
+    { label: "Wifi", href: "/security/wifi" },
   ],
 
   navItems: [
     { label: "Inicio", href: "/" },
     { label: "Entrar", href: "/login" },
-    { label: "Serviços", href: "/services" },
     { label: "Contato", href: "/contact" },
+    { label: "Serviços", href: "/services" },
     { label: "Sobre", href: "/about" },
   ],
-  navMenuItems: [
-    { label: "Inicio", href: "/security/" },
-    { label: "Sites", href: "/security/sites" },
-    { label: "Cartões", href: "/security/cards" },
-    { label: "Wifi's", href: "/security/wifi" },
-    { label: "Logout", href: "/security/logout" },
-  ],
-  links: {
-    github: "https://github.com/Yokuny",
-    linkedin: "https://linkedin.com/in/yokuny/",
-  },
 };
 
 export const fakerItems: listItem[] = [

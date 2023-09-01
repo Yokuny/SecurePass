@@ -24,7 +24,7 @@ export default function AboutPage() {
             <Link
               isExternal
               as={NextLink}
-              href={"a"}
+              href="piru"
               className={buttonStyles({ color: "primary", radius: "full", variant: "shadow" })}>
               Documentation
             </Link>
@@ -32,7 +32,7 @@ export default function AboutPage() {
               isExternal
               as={NextLink}
               className={buttonStyles({ variant: "bordered", radius: "full" })}
-              href={"a"}>
+              href="lelé">
               <GithubIcon size={20} />
               GitHub
             </Link>

@@ -1,4 +1,3 @@
-"use client";
 import {
   Modal,
   ModalContent,
@@ -11,9 +10,9 @@ import {
 } from "@nextui-org/react";
 import { Snippet } from "@nextui-org/snippet";
 import { title } from "@/components/primitives";
-import { data } from "@/config/site";
+import { listItem } from "@/types";
 
-const CardList = ({ item }: { item: data }) => {
+const CardList = ({ item }: { item: listItem }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (

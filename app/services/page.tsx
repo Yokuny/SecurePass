@@ -24,7 +24,7 @@ export default function AboutPage() {
             <Link
               isExternal
               as={NextLink}
-              href={siteConfig.links.linkedin}
+              href={"a"}
               className={buttonStyles({ color: "primary", radius: "full", variant: "shadow" })}>
               Documentation
             </Link>
@@ -32,7 +32,7 @@ export default function AboutPage() {
               isExternal
               as={NextLink}
               className={buttonStyles({ variant: "bordered", radius: "full" })}
-              href={siteConfig.links.github}>
+              href={"a"}>
               <GithubIcon size={20} />
               GitHub
             </Link>
