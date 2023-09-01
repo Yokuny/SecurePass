@@ -1,24 +1,30 @@
+import { listItem } from "@/types";
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "SecurePass",
   description: "Gerenciador de Senhas Seguras.",
+
+  privatePages: [
+    { label: "Inicio", href: "/security/" },
+    { label: "Sites", href: "/security/sites" },
+    { label: "Cartões", href: "/security/cards" },
+    { label: "Wifi's", href: "/security/wifi" },
+  ],
+
   navItems: [
     { label: "Inicio", href: "/" },
-    { label: "Credenciais", href: "/credentials" },
-    { label: "Notas", href: "/notes" },
-    { label: "Cartões", href: "/cards" },
-    { label: "Wifi's", href: "/wifi" },
+    { label: "Entrar", href: "/login" },
+    { label: "Serviços", href: "/services" },
+    { label: "Contato", href: "/contact" },
     { label: "Sobre", href: "/about" },
   ],
   navMenuItems: [
-    { label: "Inicio", href: "/" },
-    { label: "Credenciais", href: "/credentials" },
-    { label: "Notas", href: "/notes" },
-    { label: "Cartões", href: "/cards" },
-    { label: "Wifi's", href: "/wifi" },
-    { label: "Sobre", href: "/about" },
-    { label: "Logout", href: "/logout" },
+    { label: "Inicio", href: "/security/" },
+    { label: "Sites", href: "/security/sites" },
+    { label: "Cartões", href: "/security/cards" },
+    { label: "Wifi's", href: "/security/wifi" },
+    { label: "Logout", href: "/security/logout" },
   ],
   links: {
     github: "https://github.com/Yokuny",
@@ -26,14 +32,7 @@ export const siteConfig = {
   },
 };
 
-export type data = {
-  title: string;
-  url: string;
-  user: string;
-  password: string;
-};
-
-export const fakerItems: data[] = [
+export const fakerItems: listItem[] = [
   {
     title: "Facebook",
     url: "https://www.facebook.com/",
@@ -99,35 +98,5 @@ export const fakerItems: data[] = [
     url: "https://www.pinterest.com/",
     user: "pin_user567",
     password: "pinPass567",
-  },
-  {
-    title: "Reddit",
-    url: "https://www.reddit.com/",
-    user: "reddit_user890",
-    password: "redPass890",
-  },
-  {
-    title: "Snapchat",
-    url: "https://www.snapchat.com/",
-    user: "snap_user123",
-    password: "snapPass123",
-  },
-  {
-    title: "WhatsApp",
-    url: "https://www.whatsapp.com/",
-    user: "whatsapp_user456",
-    password: "whatsPass456",
-  },
-  {
-    title: "TikTok",
-    url: "https://www.tiktok.com/",
-    user: "tiktok_user789",
-    password: "tikPass789",
-  },
-  {
-    title: "Netflix",
-    url: "https://www.netflix.com/",
-    user: "netflix_user345",
-    password: "netPass345",
   },
 ];

@@ -1,11 +1,12 @@
 import "@/styles/globals.css";
 import { Metadata } from "next";
-import { siteConfig } from "@/config/site";
+import clsx from "clsx";
+
 import { fontSans } from "@/config/fonts";
-import { Providers } from "./providers";
+import { siteConfig } from "@/config/site";
 import { Navbar } from "@/components/navbar";
 import { Link } from "@nextui-org/link";
-import clsx from "clsx";
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   title: {
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.svg",
     shortcut: "/favicon-16x16.png",
     apple: "/apple-touch-icon.png",
   },
