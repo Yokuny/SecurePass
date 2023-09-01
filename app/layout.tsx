@@ -4,9 +4,9 @@ import clsx from "clsx";
 
 import { fontSans } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
-import { Navbar } from "@/components/navbar";
-import { Link } from "@nextui-org/link";
 import { Providers } from "./providers";
+import Navbar from "@/components/navbar/navbar";
+import Footer from "@/components/footer/footer";
 
 export const metadata: Metadata = {
   title: {
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en" suppressHydrationWarning>
       <head />
@@ -33,20 +33,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col h-screen">
             <Navbar />
-            <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">{children}</main>
-            <footer className="w-full flex items-center justify-center py-4">
-              <Link
-                isExternal
-                className="flex items-center gap-1 text-current"
-                href="https://"
-                title="rights">
-                <span className="text-default-600">© 2023.</span>
-                <p className="text-primary"></p>
-              </Link>
-            </footer>
+            <main>{children}</main>
+            <Footer />
           </div>
         </Providers>
       </body>
     </html>
   );
-}
+};
+
+export default RootLayout;

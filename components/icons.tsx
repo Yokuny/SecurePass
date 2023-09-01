@@ -38,6 +38,19 @@ export const GithubIcon: React.FC<IconSvgProps> = ({ size = 20, width, height, .
   );
 };
 
+export const LogOutIcon: React.FC<IconSvgProps> = ({ size = 20, width, height, ...props }) => {
+  return (
+    <svg height={size || height} viewBox="0 0 24 24" width={size || width} {...props}>
+      <path
+        fill="currentColor"
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"
+      />
+    </svg>
+  );
+};
+
 export const MoonFilledIcon = ({ size = 24, width, height, ...props }: IconSvgProps) => (
   <svg
     aria-hidden="true"

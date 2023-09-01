@@ -1,19 +1,14 @@
 "use client";
-import { Card, CardBody } from "@nextui-org/react";
-import CardTitle from "@/components/CardTitle";
-import CardList from "@/components/CardList";
-
-import { fakerItems } from "@/config/site";
+import Banner from "@/components/home/Banner";
+import FirstSection from "@/components/home/FirstSection";
 
 export default function Home() {
   return (
-    <Card>
-      <CardTitle />
-      <CardBody className="md:gap-3 gap-4">
-        {fakerItems.map((item, index) => (
-          <CardList key={index} item={item} />
-        ))}
-      </CardBody>
-    </Card>
+    <>
+      <Banner />
+      <section className="min-h-screen container mx-auto max-w-7xl pt-16 px-6 flex-grow">
+        <FirstSection />
+      </section>
+    </>
   );
 }
