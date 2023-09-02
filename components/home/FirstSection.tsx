@@ -11,7 +11,7 @@ const FirstSection = () => {
             segurança total
           </h1>
           <h2 className={subtitle({ class: "mt-4" })}>
-            Você só precisa se lembrar de um login para acessar suas informações confidenciais.
+            Esqueça suas múltiplas senhas, proteja todas elas com apenas um acesso!
           </h2>
         </div>
         <div>

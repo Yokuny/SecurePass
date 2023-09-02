@@ -16,7 +16,6 @@ export const siteConfig = {
     { label: "Inicio", href: "/" },
     { label: "Entrar", href: "/login" },
     { label: "Contato", href: "/contact" },
-    { label: "Serviços", href: "/services" },
     { label: "Sobre", href: "/about" },
   ],
 };
