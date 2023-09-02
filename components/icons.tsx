@@ -51,6 +51,36 @@ export const LogOutIcon: React.FC<IconSvgProps> = ({ size = 20, width, height, .
   );
 };
 
+export const CloseIcon: React.FC<IconSvgProps> = ({ size = 20, width, height, ...props }) => {
+  return (
+    <svg height={size || height} viewBox="0 0 512 512" width={size || width} {...props}>
+      <path
+        clipRule="evenodd"
+        fill="currentColor"
+        fillRule="evenodd"
+        d="M400 145.49L366.51 112 256 222.51 145.49 112 112 145.49 222.51 256 112 366.51 145.49 400 256 289.49 366.51 400 400 366.51 289.49 256 400 145.49z"
+      />
+    </svg>
+  );
+};
+
+export const ConfirmIcon: React.FC<IconSvgProps> = ({ size = 20, width, height, ...props }) => {
+  return (
+    <svg height={size || height} viewBox="0 0 512 512" width={size || width} {...props}>
+      <path
+        clipRule="evenodd"
+        fill="none"
+        fillRule="evenodd"
+        stroke-linecap="square"
+        stroke-miterlimit="20"
+        stroke-width="50"
+        stroke="currentColor"
+        d="M416 128L192 384l-96-96"
+      />
+    </svg>
+  );
+};
+
 export const MoonFilledIcon = ({ size = 24, width, height, ...props }: IconSvgProps) => (
   <svg
     aria-hidden="true"

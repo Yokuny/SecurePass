@@ -4,7 +4,7 @@ import LoginLogout from "./loginLogout";
 
 export default function AboutPage() {
   return (
-    <section className="flex flex-col items-center justify-center gap-8">
+    <section className="flex flex-col items-center justify-center gap-8 md:pt-20">
       <Title />
       <LoginLogout />
     </section>

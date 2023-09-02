@@ -10,11 +10,11 @@ const Tabs = ({ routes }: { routes: RoutesType[] }) => {
   const path = usePathname();
   return (
     <ul className="hidden sm:flex gap-3 md:gap-4 justify-start ml-2">
-      {routes.map((item) => (
+      {routes.map((item, index) => (
         <NavbarItem key={item.href} isActive={item.href === path}>
           <NextLink
             className={clsx(
-              linkStyles({ color: "foreground" }),
+              linkStyles({ color: index === 1 ? "success" : "foreground" }),
               "data-[active=true]:text-primary data-[active=true]:font-medium"
             )}
             color="foreground"

@@ -1,6 +1,7 @@
 "use client";
 import { Card } from "@nextui-org/react";
-import CardTitle from "@/components/cards/CardTitle";
+import CardTitle from "@/components/cards/ListTitle";
+import CardOptions from "@/components/cards/ListFooterOptions";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -8,6 +9,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <Card>
         <CardTitle />
         {children}
+        <CardOptions />
       </Card>
     </section>
   );

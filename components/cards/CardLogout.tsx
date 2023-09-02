@@ -1,5 +1,4 @@
 import Cookie from "js-cookie";
-
 import { Button } from "@nextui-org/react";
 import { LogOutIcon } from "../icons";
 
