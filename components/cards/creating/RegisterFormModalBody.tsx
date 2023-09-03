@@ -1,5 +1,5 @@
 import { ModalHeader, ModalBody, Divider } from "@nextui-org/react";
-import { title, subtitle } from "../primitives";
+import { title, subtitle } from "../../primitives";
 
 const RegisterFormModalBody = () => {
   return (

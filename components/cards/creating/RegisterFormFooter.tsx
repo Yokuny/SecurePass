@@ -1,5 +1,5 @@
 import { ModalFooter, Button, Modal, ModalContent, useDisclosure } from "@nextui-org/react";
-import { ConfirmIcon, CloseIcon } from "../icons";
+import { ConfirmIcon, CloseIcon } from "../../icons";
 import RegisterFormModalBody from "./RegisterFormModalBody";
 
 const RegisterFormFooter = ({ onClose }: { onClose: () => void }) => {
@@ -7,26 +7,26 @@ const RegisterFormFooter = ({ onClose }: { onClose: () => void }) => {
 
   return (
     <ModalFooter>
-      <Button color="danger" variant="light" onPress={onClose}>
+      <Button color="danger" onPress={onClose}>
         <CloseIcon />
       </Button>
       <Button color="success" onClick={onOpen}>
-        <ConfirmIcon className="dark:text-white" />
+        <ConfirmIcon className="text-white" />
       </Button>
 
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>
         <ModalContent>
-          {(onConfirm) => (
+          {() => (
             <>
               <RegisterFormModalBody />
               <ModalFooter>
                 <Button
                   color="success"
                   onClick={() => {
+                    // TODO: criar realmente o registro
                     onClose();
-                    onConfirm();
                   }}>
-                  <ConfirmIcon className="dark:text-white" />
+                  <ConfirmIcon className="text-white" />
                 </Button>
               </ModalFooter>
             </>

@@ -1,6 +1,6 @@
 "use client";
 import { CardBody } from "@nextui-org/react";
-import CardList from "@/components/cards/ListItem";
+import CardList from "@/components/cards/looking/ListItem";
 
 import { fakerItems } from "@/config/site";
 

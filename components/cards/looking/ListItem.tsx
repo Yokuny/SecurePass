@@ -1,6 +1,7 @@
 import { Modal, ModalContent, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
 import { title } from "@/components/primitives";
 import ItemModal from "./ItemModal";
+import DeleteButton from "./DeleteButton";
 import { listItem } from "@/types";
 
 const ListItem = ({ item }: { item: listItem }) => {
@@ -18,9 +19,7 @@ const ListItem = ({ item }: { item: listItem }) => {
             <>
               <ItemModal item={item} />
               <ModalFooter>
-                <Button color="default" variant="light" onPress={onClose}>
-                  Deletar
-                </Button>
+                <DeleteButton onClose={onClose} />
                 <Button color="primary" onPress={onClose}>
                   Fechar
                 </Button>

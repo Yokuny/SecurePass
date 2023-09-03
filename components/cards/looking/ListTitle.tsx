@@ -1,7 +1,7 @@
 "use client";
 import { CardHeader, Divider } from "@nextui-org/react";
-import TitleInfo from "./CardTitle";
-import LogoutBtn from "./CardLogout";
+import TitleInfo from "../CardTitle";
+import LogoutBtn from "../CardLogout";
 
 const ListTitle = () => {
   return (
