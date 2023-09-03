@@ -1,16 +1,20 @@
-import { Modal, ModalContent, ModalFooter, Button, useDisclosure } from "@nextui-org/react";
-import { title } from "@/components/primitives";
+import { Modal, ModalContent, ModalFooter, Button, useDisclosure, Snippet } from "@nextui-org/react";
 import ItemModal from "./ItemModal";
 import DeleteButton from "./DeleteButton";
 import { listItem } from "@/types";
 
-const ListItem = ({ item }: { item: listItem }) => {
+const ListItem = ({ item, id }: { item: listItem; id: number }) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
     <>
       <div className="flex items-center gap-2 cursor-pointer" onClick={onOpen}>
-        <p className={`${title({ color: "cyan", size: "small" })}`}>{item.title}</p>
+        <Snippet symbol="#" radius="sm" variant="shadow" hideCopyButton>
+          {id + 1}
+        </Snippet>
+        <Snippet symbol="" size="lg" radius="sm" color="primary" variant="solid" hideCopyButton>
+          {item.title}
+        </Snippet>
       </div>
 
       <Modal isOpen={isOpen} onOpenChange={onOpenChange}>

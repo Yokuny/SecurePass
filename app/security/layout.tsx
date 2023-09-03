@@ -6,7 +6,7 @@ import CardOptions from "@/components/cards/creating/ListFooterOptions";
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <section className="min-h-screen container mx-auto max-w-7xl pt-16 px-6 flex-grow">
-      <Card className="h-[530]">
+      <Card isFooterBlurred className="h-[530px] md:h-[700px]">
         <CardTitle />
         {children}
         <CardOptions />

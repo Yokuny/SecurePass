@@ -7,12 +7,13 @@ const ListFooterOptions = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
-    <CardFooter className="justify-end p-4 absolute bottom-1 z-10">
+    <CardFooter className="justify-between before:bg-white/10 border-white/20 border-1 overflow-hidden py-2 absolute before:rounded-xl rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10">
       <Button
         onClick={onOpen}
         className="text-white font-semibold sm:w-16 md:w-20"
         variant="shadow"
-        color="success">
+        color="success"
+        size="md">
         +
       </Button>
 
