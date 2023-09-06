@@ -8,7 +8,12 @@ import { LinkedinIcon } from "@/components/icons";
 import { ThemeSwitch } from "@/components/theme-switch";
 import { RoutesType } from "@/types";
 
-const Menu = ({ routes, loggedIn }: { routes: RoutesType[]; loggedIn: boolean }) => {
+type MenuProps = {
+  routes: RoutesType[];
+  loggedIn: boolean;
+};
+
+const Menu = ({ routes, loggedIn }: MenuProps) => {
   const router = useRouter();
 
   const handleLogout = async () => {

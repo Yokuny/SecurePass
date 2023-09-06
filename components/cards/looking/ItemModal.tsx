@@ -3,7 +3,11 @@ import { Snippet } from "@nextui-org/snippet";
 import { title } from "@/components/primitives";
 import { listItem } from "@/types";
 
-const ItemModal = ({ item }: { item: listItem }) => {
+type ItemProps = {
+  item: listItem;
+};
+
+const ItemModal = ({ item }: ItemProps) => {
   return (
     <>
       <ModalHeader className="flex flex-col gap-1">

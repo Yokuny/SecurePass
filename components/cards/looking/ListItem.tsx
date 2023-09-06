@@ -3,7 +3,12 @@ import ItemModal from "./ItemModal";
 import DeleteButton from "./DeleteButton";
 import { listItem } from "@/types";
 
-const ListItem = ({ item, id }: { item: listItem; id: number }) => {
+type ItemProps = {
+  item: listItem;
+  id: number;
+};
+
+const ListItem = ({ item, id }: ItemProps) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (

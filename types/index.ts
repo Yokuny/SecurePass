@@ -15,3 +15,7 @@ export type RoutesType = {
   label: string;
   href: string;
 };
+
+export type Props = {
+  children: React.ReactNode;
+};

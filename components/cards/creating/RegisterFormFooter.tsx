@@ -2,7 +2,11 @@ import { ModalFooter, Button, Modal, ModalContent, useDisclosure } from "@nextui
 import { ConfirmIcon, CloseIcon } from "../../icons";
 import RegisterFormModalBody from "./RegisterFormModalBody";
 
-const RegisterFormFooter = ({ onClose }: { onClose: () => void }) => {
+type RegisterProps = {
+  onClose: () => void;
+};
+
+const RegisterFormFooter = ({ onClose }: RegisterProps) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (

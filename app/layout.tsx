@@ -4,6 +4,7 @@ import clsx from "clsx";
 
 import { fontSans } from "@/config/fonts";
 import { siteConfig } from "@/config/site";
+import { Props } from "@/types";
 import { Providers } from "./providers";
 import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer/footer";
@@ -21,11 +22,11 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon-16x16.png",
-    apple: "/apple-touch-icon.png",
+    apple: "/favicon.svg",
   },
 };
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+const RootLayout = ({ children }: Props) => {
   return (
     <html lang="en" suppressHydrationWarning>
       <head />

@@ -6,7 +6,11 @@ import clsx from "clsx";
 import { link as linkStyles } from "@nextui-org/theme";
 import { RoutesType } from "@/types";
 
-const Tabs = ({ routes }: { routes: RoutesType[] }) => {
+type TabsProps = {
+  routes: RoutesType[];
+};
+
+const Tabs = ({ routes }: TabsProps) => {
   const path = usePathname();
   return (
     <ul className="hidden sm:flex gap-3 md:gap-4 justify-start ml-2">

@@ -2,7 +2,11 @@ import { Modal, ModalContent, ModalFooter, Button, useDisclosure } from "@nextui
 import { CloseIcon, ConfirmIcon } from "../../icons";
 import DeleteModalBody from "./DeleteModalBody";
 
-const DeleteButton = ({ onClose }: { onClose: () => void }) => {
+type DeleteProps = {
+  onClose: () => void;
+};
+
+const DeleteButton = ({ onClose }: DeleteProps) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (

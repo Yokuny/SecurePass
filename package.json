@@ -1,5 +1,5 @@
 {
-  "name": "next-app-template",
+  "name": "securepass",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -26,6 +26,7 @@
     "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.14",
+    "axios": "^1.5.0",
     "clsx": "^2.0.0",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
