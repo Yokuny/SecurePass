@@ -1,6 +1,6 @@
 "use client";
 import Title from "./loginTItle";
-import LoginLogout from "./loginLogout";
+import LoginLogout from "./LoginSignin";
 import { useEffect } from "react";
 
 export default function AboutPage() {

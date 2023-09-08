@@ -5,10 +5,20 @@ export type IconSvgProps = SVGProps<SVGSVGElement> & {
 };
 
 export type listItem = {
+  id: string;
   title: string;
-  url: string;
-  user: string;
-  password: string;
+
+  url?: string;
+  username?: string;
+  password?: string;
+
+  type?: string;
+  isVirtual?: boolean;
+  expirationDate?: string;
+  cvv?: string;
+  name?: string;
+  number?: string;
+  text?: string;
 };
 
 export type RoutesType = {
@@ -18,4 +28,45 @@ export type RoutesType = {
 
 export type Props = {
   children: React.ReactNode;
+};
+
+export type ModalProp = {
+  onClose: () => void;
+};
+
+export type inputProps = {
+  value: string;
+  set: (value: string) => void;
+  setErr?: (error: boolean) => void;
+  regex: RegExp;
+};
+
+export type postCredentialsProps = {
+  url: string;
+  title: string;
+  user: string;
+  password: string;
+};
+
+export type postCardProps = {
+  title: string;
+  number: string;
+  name: string;
+  cvv: string;
+  expirationDate: string;
+  password: string;
+  isVirtual: boolean;
+  type: "CREDIT" | "DEBT" | "BOTH";
+};
+
+export type DeleteProps = {
+  onClose: () => void;
+  itemReference: string | undefined;
+  requestString: string;
+};
+
+export type ItemProps = {
+  item: listItem;
+  id: number;
+  requestString: string;
 };

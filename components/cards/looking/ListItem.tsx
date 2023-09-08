@@ -1,14 +1,9 @@
 import { Modal, ModalContent, ModalFooter, Button, useDisclosure, Snippet } from "@nextui-org/react";
 import ItemModal from "./ItemModal";
 import DeleteButton from "./DeleteButton";
-import { listItem } from "@/types";
+import { ItemProps } from "@/types";
 
-type ItemProps = {
-  item: listItem;
-  id: number;
-};
-
-const ListItem = ({ item, id }: ItemProps) => {
+const ListItem = ({ item, id, requestString }: ItemProps) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   return (
@@ -28,7 +23,7 @@ const ListItem = ({ item, id }: ItemProps) => {
             <>
               <ItemModal item={item} />
               <ModalFooter>
-                <DeleteButton onClose={onClose} />
+                <DeleteButton onClose={onClose} itemReference={item.id} requestString={requestString} />
                 <Button color="primary" onPress={onClose}>
                   Fechar
                 </Button>

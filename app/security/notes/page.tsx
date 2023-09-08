@@ -2,39 +2,38 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { CardBody } from "@nextui-org/react";
-import { bearerToken } from "@/utils/bearerToken";
 
 import CardList from "@/components/cards/looking/ListItem";
+import { bearerToken } from "@/utils/bearerToken";
 
-export default function CardsPage() {
+export default function NotesPage() {
   const API = process.env.NEXT_PUBLIC_API;
-  const [cards, setCards] = useState([]);
-  const requestString = `${API}cards`;
+  const [notes, setNotes] = useState([]);
+  const requestString = `${API}notes`;
 
   useEffect(() => {
-    const getCards = async () => {
+    const getNotes = async () => {
       try {
-        const cards = await axios.get(requestString, bearerToken);
-
-        setCards(cards.data);
+        const notes = await axios.get(requestString, bearerToken);
+        setNotes(notes.data);
       } catch (err) {
         alert("err");
       }
     };
 
-    getCards();
+    getNotes();
   }, []);
 
   return (
     <>
       <CardBody className="md:gap-3 gap-4">
-        {cards?.length === 0 ? (
+        {notes?.length === 0 ? (
           <div className="h-full flex items-center justify-center w-full">
             <h1 className="w-2/4 text-center">Comece adicionando um novo item!</h1>
           </div>
         ) : (
           <>
-            {cards?.map((item, index) => (
+            {notes?.map((item, index) => (
               <CardList key={index} item={item} id={index} requestString={requestString} />
             ))}
           </>

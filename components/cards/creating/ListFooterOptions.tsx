@@ -1,7 +1,6 @@
 import { CardFooter, Modal, ModalContent, ModalHeader, Button, useDisclosure } from "@nextui-org/react";
 import { title } from "@/components/primitives";
-import RegisterForm from "./RegisterForm";
-import RegisterFormFooter from "./RegisterFormFooter";
+import RegisterTabs from "./RegisterTabs";
 
 const ListFooterOptions = () => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
@@ -24,8 +23,8 @@ const ListFooterOptions = () => {
               <ModalHeader className="flex flex-col gap-1">
                 <h1 className={`${title({ color: "blue", size: "sm" })} py-1`}>Cadastro</h1>
               </ModalHeader>
-              <RegisterForm />
-              <RegisterFormFooter onClose={onClose} />
+
+              <RegisterTabs onClose={onClose} />
             </>
           )}
         </ModalContent>
