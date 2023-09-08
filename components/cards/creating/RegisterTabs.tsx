@@ -2,6 +2,7 @@ import { Tabs, Tab, CardBody } from "@nextui-org/react";
 import { useState } from "react";
 import CredentialsForm from "./CredentialsForm";
 import CardsForm from "./CardsForm";
+import NotesForm from "./NotesForm";
 import { ModalProp } from "@/types";
 
 const RegisterTabs = ({ onClose }: ModalProp) => {
@@ -27,7 +28,7 @@ const RegisterTabs = ({ onClose }: ModalProp) => {
               <CardsForm onClose={onClose} />
             </Tab>
             <Tab key="notes" title="Notas">
-              <CredentialsForm onClose={onClose} />
+              <NotesForm onClose={onClose} />
             </Tab>
             <Tab key="wifi" title="Wifi">
               <CredentialsForm onClose={onClose} />

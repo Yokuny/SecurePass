@@ -1,46 +1,38 @@
 import { useState } from "react";
 import axios from "axios";
 import { Input } from "@nextui-org/input";
-import { Button, Modal, useDisclosure } from "@nextui-org/react";
+import { Button, Modal, Textarea, useDisclosure } from "@nextui-org/react";
 
 import RegisterConfirmationModal from "./RegisterConfirmationModal";
 import { ModalProp } from "@/types";
-import { titleRegex, urlRegex, passwordRegex } from "@/utils/regex";
+import { titleRegex } from "@/utils/regex";
 import { bearerToken } from "@/utils/bearerToken";
 import { inputValidation } from "@/utils/inputValidation";
 
 const API = process.env.NEXT_PUBLIC_API;
-const requestString = `${API}credentials`;
+const requestString = `${API}notes`;
 
-const CredentialsForm = ({ onClose }: ModalProp) => {
+const NotesForm = ({ onClose }: ModalProp) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
-  const [url, setUrl] = useState("");
   const [title, setTitle] = useState("");
-  const [user, setUser] = useState("");
-  const [password, setPassword] = useState("");
+  const [note, setNote] = useState("");
 
-  const [urlErr, setUrlErr] = useState(false);
   const [titleErr, setTitleErr] = useState(false);
-  const [userErr, setUserErr] = useState(false);
-  const [passwordErr, setPasswordErr] = useState(false);
+  const [noteErr, setNoteErr] = useState(false);
 
   const postCredentials = async () => {
     const data = {
-      url,
       title,
-      username: user,
-      password,
+      text: note,
     };
 
     try {
       await axios.post(requestString, data, bearerToken);
       onOpen();
     } catch (err) {
-      setUrlErr(true);
       setTitleErr(true);
-      setUserErr(true);
-      setPasswordErr(true);
+      setNoteErr(true);
     }
   };
 
@@ -61,46 +53,18 @@ const CredentialsForm = ({ onClose }: ModalProp) => {
             })
           }
         />
-        <Input
-          color={urlErr ? "danger" : "success"}
-          label="URL"
-          type="url"
-          size="md"
+        <Textarea
+          color={noteErr ? "danger" : "success"}
+          label="Nota"
+          minRows={2}
+          maxRows={6}
           variant="faded"
           onChange={(e) =>
             inputValidation({
               value: e.target.value,
-              set: setUrl,
-              setErr: setUrlErr,
-              regex: urlRegex,
-            })
-          }
-        />
-        <Input
-          color={userErr ? "danger" : "success"}
-          label="Usuário"
-          size="md"
-          variant="faded"
-          onChange={(e) =>
-            inputValidation({
-              value: e.target.value,
-              set: setUser,
-              setErr: setUserErr,
-              regex: passwordRegex,
-            })
-          }
-        />
-        <Input
-          color={passwordErr ? "danger" : "success"}
-          label="Senha"
-          size="md"
-          variant="faded"
-          onChange={(e) =>
-            inputValidation({
-              value: e.target.value,
-              set: setPassword,
-              setErr: setPasswordErr,
-              regex: passwordRegex,
+              set: setNote,
+              setErr: setNoteErr,
+              regex: titleRegex,
             })
           }
         />
@@ -121,4 +85,4 @@ const CredentialsForm = ({ onClose }: ModalProp) => {
     </form>
   );
 };
-export default CredentialsForm;
+export default NotesForm;

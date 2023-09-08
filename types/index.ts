@@ -41,13 +41,6 @@ export type inputProps = {
   regex: RegExp;
 };
 
-export type postCredentialsProps = {
-  url: string;
-  title: string;
-  user: string;
-  password: string;
-};
-
 export type postCardProps = {
   title: string;
   number: string;

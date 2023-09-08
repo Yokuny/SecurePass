@@ -12,7 +12,7 @@ import {
 } from "@nextui-org/react";
 import RegisterConfirmationModal from "./RegisterConfirmationModal";
 import { ModalProp, postCardProps } from "@/types";
-import { titleRegex, creditCardRegex, cvvRegex, userPasswordRegex } from "@/utils/regex";
+import { titleRegex, creditCardRegex, cvvRegex, passwordRegex, dateRegex } from "@/utils/regex";
 import { bearerToken } from "@/utils/bearerToken";
 import { inputValidation } from "@/utils/inputValidation";
 
@@ -23,11 +23,11 @@ const CardsForm = ({ onClose }: ModalProp) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
 
   const [title, setTitle] = useState("");
-  const [name, setName] = useState("");
   const [number, setNumber] = useState("");
+  const [name, setName] = useState("");
   const [cvv, setCvv] = useState("");
   const [expirationDate, setExpirationDate] = useState("");
-  const [isVirtual, setIsVirtual] = useState(false);
+  const [cardPassword, setCardPassword] = useState("");
   const [type, setType] = useState(new Set(["BOTH"]));
 
   const [titleErr, setTitleErr] = useState(false);
@@ -35,34 +35,45 @@ const CardsForm = ({ onClose }: ModalProp) => {
   const [numberErr, setNumberErr] = useState(false);
   const [cvvErr, setCvvErr] = useState(false);
   const [expirationDateErr, setExpirationDateErr] = useState(false);
-  const [isVirtualErr, setIsVirtualErr] = useState(false);
+  const [cardPasswordErr, setCardPasswordErr] = useState(false);
 
   const handleCardType = (keys: Set<string>) => {
     setType(keys);
   };
 
-  const postCredentials = async (cardInfo: postCardProps) => {
-    const data = {
-      title: cardInfo.title,
-      name: cardInfo.name,
-      number: cardInfo.number,
-      cvv: cardInfo.cvv,
-      expirationDate: cardInfo.expirationDate,
-      password: cardInfo.password,
-      isVirtual: cardInfo.isVirtual,
-      type: cardInfo.type,
-    };
+  const postCredentials = async () => {
+    const partesData = expirationDate.split("-");
+    if (partesData.length === 3) {
+      const ano = partesData[0].slice(-2);
+      const mes = partesData[1];
+      const validData = `${mes}/${ano}`;
 
-    try {
-      await axios.post(requestString, data, bearerToken);
-      onOpen();
-    } catch (err) {
-      setTitleErr(true);
-      setNameErr(false);
-      setNumberErr(false);
-      setCvvErr(false);
-      setExpirationDateErr(false);
-      setIsVirtualErr(false);
+      const data = {
+        title: title,
+        number: number,
+        name: name,
+        cvv: cvv,
+        expirationDate: validData,
+        password: cardPassword,
+        isVirtual: false,
+        type: type.has("BOTH") ? "BOTH" : type.has("CREDIT") ? "CREDIT" : "DEBT",
+      };
+
+      try {
+        await axios.post(requestString, data, bearerToken);
+        onOpen();
+        alert("Cartão cadastrado com sucesso!");
+      } catch (err) {
+        alert("Erro ao cadastrar cartão!");
+        setTitleErr(true);
+        setNameErr(true);
+        setNumberErr(true);
+        setCvvErr(true);
+        setExpirationDateErr(true);
+        setCardPasswordErr(true);
+      }
+    } else {
+      setExpirationDateErr(true);
     }
   };
 
@@ -70,10 +81,6 @@ const CardsForm = ({ onClose }: ModalProp) => {
     <form className="flex flex-col gap-6">
       <div className="flex flex-col gap-4 my-4">
         <Input
-          color={titleErr ? "danger" : "success"}
-          label="Título"
-          size="md"
-          variant="faded"
           onChange={(e) =>
             inputValidation({
               value: e.target.value,
@@ -82,14 +89,15 @@ const CardsForm = ({ onClose }: ModalProp) => {
               regex: titleRegex,
             })
           }
+          color={titleErr ? "danger" : "success"}
+          label="Título"
+          size="md"
+          variant="faded"
         />
+
         <div className="inline-flex w-full gap-3">
           <div className="w-full">
             <Input
-              color={nameErr ? "danger" : "success"}
-              label="Nome"
-              size="md"
-              variant="faded"
               onChange={(e) =>
                 inputValidation({
                   value: e.target.value,
@@ -98,6 +106,10 @@ const CardsForm = ({ onClose }: ModalProp) => {
                   regex: titleRegex,
                 })
               }
+              color={nameErr ? "danger" : "success"}
+              label="Titular"
+              size="md"
+              variant="faded"
             />
           </div>
           <div className="max-w-[210px]">
@@ -122,14 +134,10 @@ const CardsForm = ({ onClose }: ModalProp) => {
             </Dropdown>
           </div>
         </div>
+
         <div className="inline-flex w-full gap-3.5">
           <div className="w-full">
             <Input
-              color={numberErr ? "danger" : "success"}
-              label="Número"
-              type="number"
-              size="md"
-              variant="faded"
               onChange={(e) =>
                 inputValidation({
                   value: e.target.value,
@@ -138,15 +146,20 @@ const CardsForm = ({ onClose }: ModalProp) => {
                   regex: creditCardRegex,
                 })
               }
+              classNames={{
+                input: [
+                  "[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none",
+                ],
+              }}
+              color={numberErr ? "danger" : "success"}
+              label="Número do cartão"
+              type="number"
+              size="md"
+              variant="faded"
             />
           </div>
           <div className="max-w-[110px]">
             <Input
-              color={cvvErr ? "danger" : "success"}
-              label="CVV"
-              type="number"
-              size="md"
-              variant="faded"
               onChange={(e) =>
                 inputValidation({
                   value: e.target.value,
@@ -155,62 +168,63 @@ const CardsForm = ({ onClose }: ModalProp) => {
                   regex: cvvRegex,
                 })
               }
-            />
-          </div>
-        </div>
-
-        <div className="inline-flex w-full gap-3">
-          <div className="w-full">
-            <Input
-              color={numberErr ? "danger" : "success"}
-              label="Número"
+              classNames={{
+                input: [
+                  "[appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none",
+                ],
+              }}
+              color={cvvErr ? "danger" : "success"}
+              label="CVV"
               type="number"
               size="md"
               variant="faded"
-              onChange={(e) =>
-                inputValidation({
-                  value: e.target.value,
-                  set: setNumber,
-                  setErr: setNumberErr,
-                  regex: creditCardRegex,
-                })
-              }
             />
           </div>
         </div>
 
-        {/* <Checkbox
-          label="Cartão Virtual"
-          isChecked={isVirtual}
-          onChange={(isChecked) => setIsVirtual(isChecked)}
-        />
-        <Select label="Tipo" size="md" variant="faded" value={type} onChange={(value) => setType(value)}>
-          <Option value="CREDIT">Crédito</Option>
-          <Option value="DEBT">Débito</Option>
-          <Option value="BOTH">Crédito e Débito</Option>
-        </Select> */}
+        <div className="inline-flex w-full gap-3.5">
+          <div>
+            <Input
+              onChange={(e) =>
+                inputValidation({
+                  value: e.target.value,
+                  set: setExpirationDate,
+                  setErr: setExpirationDateErr,
+                  regex: dateRegex,
+                })
+              }
+              color={expirationDateErr ? "danger" : "success"}
+              label="Validade"
+              placeholder=" "
+              type="date"
+              size="md"
+              variant="faded"
+            />
+          </div>
+          <div className="w-full">
+            <Input
+              onChange={(e) =>
+                inputValidation({
+                  value: e.target.value,
+                  set: setCardPassword,
+                  setErr: setCardPasswordErr,
+                  regex: passwordRegex,
+                })
+              }
+              color={cardPasswordErr ? "danger" : "success"}
+              label="Senha"
+              size="md"
+              variant="faded"
+            />
+          </div>
+        </div>
       </div>
 
       <div className="flex gap-2 justify-end">
         <Button color="primary" onClick={onClose}>
           Cancelar
         </Button>
-        <Button
-          fullWidth
-          color="success"
-          className="text-white"
-          onClick={() => {
-            // postCredentials({
-            //   title,
-            //   name,
-            //   number,
-            //   cvv,
-            //   expirationDate,
-            //   password,
-            //   isVirtual,
-            //   type,
-            // });
-          }}>
+        <Button fullWidth color="success" className="text-white" onClick={postCredentials}>
           Salvar
         </Button>
 
