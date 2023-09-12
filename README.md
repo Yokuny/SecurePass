@@ -36,15 +36,21 @@ No celular, o link de acesso fica no menu superior, ao clicar no botão de menu.
 ### **Como usar:**
 
 1. Quando você abrir o app pela primeira vez, verá um card vazio com a mensagem "**Comece adicionando um novo item!**”
+
+<br>
+
 ![first-acess.png](./public/first-acess.png)
 
-2. **Para registrar um novo item**, clique no botão verde inferir para abrir uma tela de registro.
+3. **Para registrar um novo item**, clique no botão verde inferir para abrir uma tela de registro.
 
-3. **Na tela de registro**, você pode adicionar credenciais de sites ou redes sociais, informações de cartão de crédito, notas pessoais e senhas de Wi-Fi.
+4. **Na tela de registro**, você pode adicionar credenciais de sites ou redes sociais, informações de cartão de crédito, notas pessoais e senhas de Wi-Fi.
+
+<br>
+
 ![register-card.png](./public/register-card.png)
 
 
-4. **Ao salvar um registro**, você é direcionado para a tela de card, onde suas informações serão apresentadas em uma lista.
+6. **Ao salvar um registro**, você é direcionado para a tela de card, onde suas informações serão apresentadas em uma lista.
     <br>
 
     <b>`Meus dados não estão aparecendo na lista!`</b>
@@ -58,7 +64,7 @@ No celular, o link de acesso fica no menu superior, ao clicar no botão de menu.
     -Na versão desktop, você pode alterar a lista no menu superior.
     -Na versão mobile, o acesso a cada lista fica no menu.
     <br>    
-5. **Para acessar, copiar ou apagar seu registro**, clique no item com o título que você colocou ao registrar a informação.
+7. **Para acessar, copiar ou apagar seu registro**, clique no item com o título que você colocou ao registrar a informação.
 <br>
 
 <hr>
