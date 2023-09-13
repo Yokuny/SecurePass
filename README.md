@@ -53,6 +53,7 @@ No celular, o link de acesso fica no menu superior, ao clicar no botão de menu.
 
 3. **Na tela de registro**, você pode adicionar credenciais de sites ou redes sociais, informações de cartão de crédito, notas pessoais e senhas de Wi-Fi.
 <br>
+
 ![register-card.png](./public/register-card.png)
 
 4. **Ao salvar um registro**, você é direcionado para a tela de card, onde suas informações serão apresentadas em uma lista.
