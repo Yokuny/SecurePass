@@ -43,23 +43,31 @@ No celular, o link de acesso fica no menu superior, ao clicar no botão de menu.
 
 ### Como usar:
 
-<img src="./public/first-acess.png" alt="first-acess" align="left">
+<img src="./public/first-acess.png" alt="first-acess" align="left"
+width="55%"
+style="margin-right:20px; "/>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 
 1. Quando você abrir o app pela primeira vez, verá um card vazio com a mensagem "**Comece adicionando um novo item!**”
 <br>
 
-2. **Para registrar um novo item**, clique no botão verde inferir para abrir uma tela de registro.
+ 2. **Para registrar um novo item**, clique no botão verde inferir para abrir uma tela de registro.
 <br>
 
 3. **Na tela de registro**, você pode adicionar credenciais de sites ou redes sociais, informações de cartão de crédito, notas pessoais e senhas de Wi-Fi.
 <br>
 
-![register-card.png](./public/register-card.png)
+<img src="./public/register-card.png" alt="register-card" width=42% />
 
 4. **Ao salvar um registro**, você é direcionado para a tela de card, onde suas informações serão apresentadas em uma lista.
-    <br>
 
     <b>`Meus dados não estão aparecendo na lista!`</b>
+    <br>
     `O app organiza as informações em listas separadas, de acordo com o tipo de dado:`
     
     - Credenciais
@@ -69,12 +77,12 @@ No celular, o link de acesso fica no menu superior, ao clicar no botão de menu.
     
     -Na versão desktop, você pode alterar a lista no menu superior.
     -Na versão mobile, o acesso a cada lista fica no menu.
-    <br>    
+    <br>
+
 5. **Para acessar, copiar ou apagar seu registro**, clique no item com o título que você colocou ao registrar a informação.
 <br>
 
 ### Tecnologias usadas
-
 
 **Front-end** _(interface)_**:**
 - **[Next.js 13](https://nextjs.org/docs/getting-started)**
