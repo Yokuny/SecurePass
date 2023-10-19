@@ -1,4 +1,5 @@
-import { Image } from "@nextui-org/react";
+// import { Image } from "@nextui-org/react";
+import Image from "next/image";
 import { Urbanist } from "next/font/google";
 const urbanist = Urbanist({ weight: ["400", "900"], subsets: ["latin"] });
 
@@ -11,7 +12,8 @@ const Banner = () => {
           <p className="md:text-lg text-base md:tracking-wide md:mt-4 ">Quantas você tem pra lembrar</p>
         </div>
       </div>
-      <Image className="z-0" radius="none" height={200} alt="banner" src="/banner.jpg" />
+
+      <Image className="z-0 w-full" height={853} width={1280} alt="banner" src="/banner.jpeg" />
     </div>
   );
 };

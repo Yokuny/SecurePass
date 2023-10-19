@@ -4,12 +4,14 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { Tabs, Tab, Link, Button, Card, CardBody } from "@nextui-org/react";
 import LoginInputs from "./loginInputs";
+import RegisterInputs from "./registerInputs";
 
 const LoginSignin = () => {
   const router = useRouter();
   const API = process.env.NEXT_PUBLIC_API;
 
   const [selected, setSelected] = useState("Entrar");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [emailError, setEmailError] = useState(false);
@@ -96,11 +98,12 @@ const LoginSignin = () => {
           </Tab>
           <Tab key="Registre" title="Registre">
             <form className="flex flex-col gap-4">
-              <LoginInputs
+              <RegisterInputs
                 emailErr={emailError}
                 passwordErr={passwordError}
                 emailValidation={emailValidation}
                 passwordValidation={passwordValidation}
+                setName={setName}
               />
               <p className="text-center text-small">
                 Já possui conta?{" "}
